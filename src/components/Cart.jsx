@@ -21,7 +21,7 @@ const Cart = () => {
       <h1 className="text-3xl text-center text-blue-900">Your Cart</h1>
       <div className='flex flex-col justify-around py-4 items-center max-w-screen-lg m-auto'>
         {cart.map((product, i) => (
-          <CartCard key={i} image={product.image} title={product.title} price={product.price} />
+          <CartCard key={i} id={product.id} image={product.image} title={product.title} price={product.price} />
         ))}
       </div>
 
