@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* body{
+    background: linear-gradient(357deg, #8FC0C8,#CAECEE); 
+    background: linear-gradient(357deg, #EFC0C8,#CAECEE);
+} */
