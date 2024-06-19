@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import useCartContext from '../Contexts/Cart'
+import cartLogo from '../assets/cart.svg'
 const Header = () => {
   const { cartCount, countCart, cart } = useCartContext()
   React.useEffect(() => {
@@ -8,8 +9,8 @@ const Header = () => {
   }, [cartCount, cart])
 
   return (
-    <div className='shadow-md'>
-      <div className='flex items-center justify-between px-8 py-5'>
+    <div className='shadow-md w-screen'>
+      <div className='flex items-center justify-between px-8 py-5 w-full'>
         <h1 className='text-3xl font-bold text-blue-950'>AS MALL</h1>
         <div className=" flex items-center justify-around searchbar w-[30%] border-2 border-blue-950  rounded-md">
           <input type="search" className='w-[80%] px-4 py-1 border-none outline-none rounded-md' />

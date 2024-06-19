@@ -1,0 +1,8 @@
+.checkout input {
+    padding: .3rem;
+    margin: 1rem 0;
+    outline: none;
+    width: auto;
+    border-bottom: 2px solid rgb(14, 14, 86);
+    color: rgb(3, 3, 35);
+}

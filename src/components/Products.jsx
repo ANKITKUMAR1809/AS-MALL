@@ -27,8 +27,8 @@ export const Products = () => {
   }
 
   return (
-    <div className='flex flex-row p-8 justify-between'>
-      <div className='px-4 shadow-md w-[600px] h-[400px]  '>
+    <div className='flex flex-row flex-wrap my-8 justify-evenly'>
+      <div className='px-4 shadow-md w-[400px] h-auto  '>
         <img src={product.image} alt={product.title} className='w-full h-full ' />
       </div>
       <div className='px-8'>

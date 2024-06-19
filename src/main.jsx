@@ -8,6 +8,7 @@ import Cart from  './components/Cart.jsx'
 import './index.css'
 import { Layout } from './Layout.jsx'
 import { Products } from './components/Products.jsx'
+import { Checkout } from './components/Checkout.jsx'
 
 const router=createBrowserRouter(createRoutesFromElements(
   <Route path='/' element={<Layout/>}>
@@ -15,6 +16,7 @@ const router=createBrowserRouter(createRoutesFromElements(
       <Route path='/men' element={<Mens/>} />
       <Route path='/women' element={<Women/>} />
       <Route path='/cart' element={<Cart/>} />
+      <Route path='/checkout' element={<Checkout/>} />
       <Route path='/product/:pId' element={<Products/>} />
   </Route>
 ))

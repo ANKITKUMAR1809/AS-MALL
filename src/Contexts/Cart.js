@@ -4,7 +4,9 @@ export const CartContext=createContext(
       cart:[{}],
       cartCount:0,
       addToCart:()=>{},
-      countCart:()=>{}
+      countCart:()=>{},
+      updateCart:()=>{},
+      deleteCart:()=>{}
     }
 )
 
