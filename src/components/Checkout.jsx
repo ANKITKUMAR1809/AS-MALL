@@ -40,7 +40,7 @@ export const Checkout = () => {
             </div>
             <h1 className='text-2xl text-blue-800'>Products in Your Cart</h1>
             <div className="flex flex-col">
-                {cart.map((item)=><CheckoutCard image={item.image} title={item.title} price={item.price} quantity={item.quantity} />)}
+                {cart.map((item)=><CheckoutCard key={item.id} image={item.image} title={item.title} price={item.price} quantity={item.quantity} />)}
             </div>
             <hr className='h-1 bg-blue-900 rounded-md my-4'/>
             <div className='flex justify-between items-center'>
