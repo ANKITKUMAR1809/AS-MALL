@@ -10,7 +10,7 @@ export const CheckoutCard = (props) => {
             <h1>{props.title}</h1>
         </div>
         <div className='flex flex-col justify-start'>
-            <h2>Price : {props.price} </h2>
+            <h2>Price : &#8377;{props.price} </h2>
             <h2>Quan : {props.quantity}</h2>
             <hr />
             <h2>Total: {props.price*props.quantity}</h2>

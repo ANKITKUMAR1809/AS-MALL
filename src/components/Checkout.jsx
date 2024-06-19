@@ -45,7 +45,7 @@ export const Checkout = () => {
             <hr className='h-1 bg-blue-900 rounded-md my-4'/>
             <div className='flex justify-between items-center'>
                 <h1>Total amount of your Cart :</h1>
-                <h1>{sum}</h1>
+                <h1>&#8377;{sum}</h1>
             </div>
             <div className='flex items-center gap-2'>
                 <input type="checkbox" name='cod' required />
