@@ -45,7 +45,7 @@ export const Products = () => {
           </ul>
         </div>
         <div className="flex flex-row justify-center items-center m-4">
-          <button className='text-white bg-blue-900 w-1/4 rounded-xl py-1 shadow-md  active:shadow-blue-900 transition-shadow duration-150' onClick={()=>addToCart(pId,1,product.price,product.title,product.image)}>Add to Cart</button>
+          <button className='max-[600px]:w-full text-white bg-blue-900 w-1/4 rounded-xl py-1 shadow-md  active:shadow-blue-900 transition-shadow duration-150' onClick={()=>addToCart(pId,1,product.price,product.title,product.image)}>Add to Cart</button>
         </div>
       </div>
 
