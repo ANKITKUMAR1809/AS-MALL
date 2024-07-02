@@ -15,7 +15,7 @@ export const Header2 = () => {
                     <input type="search" className=' px-4 py-1 border-none outline-none rounded-md' />
                     <h3 className='cursor-pointer  text-blue-950 font-semibold'>Search</h3>
                 </div>
-                <ul className='max-[600px]:w-full  flex justify-evenly w-1/4'>
+                <ul className='max-[600px]:w-full  flex justify-evenly w-[20%]'>
                     <NavLink to="" ><li className='text-blue-950 font-semibold text-[20px]'>Home</li> </NavLink>
                     <NavLink to="/men" ><li className='text-blue-950 font-semibold text-[20px]'>Men</li> </NavLink>
                     <NavLink to="/women" ><li className='text-blue-950 font-semibold text-[20px]'>Women</li></NavLink>
