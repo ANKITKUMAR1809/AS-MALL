@@ -9,7 +9,7 @@ export const Header2 = () => {
     }, [cartCount, cart])
     return (
         <div className=''>
-            <div className='w-full flex flex-wrap flex-row justify-between items-center'>
+            <div className='w-full flex flex-wrap flex-row justify-between items-center shadow-md'>
                 <h1 className='max-[600px]:w-full text-center text-3xl font-bold text-blue-950'>AS MALL</h1>
                 <div className="max-[600px]:w-full flex items-center justify-around searchbar border-2 border-blue-950  rounded-md">
                     <input type="search" className=' px-4 py-1 border-none outline-none rounded-md' />
