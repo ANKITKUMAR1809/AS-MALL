@@ -1,56 +1,93 @@
-import React, { useEffect, useState } from 'react';
-import useAllProduct from '../Hooks/useAllProduct';
-import { useParams } from 'react-router';
-import useCartContext from '../Contexts/Cart';
+import React, { useEffect, useState } from 'react'
+import useAllProduct from '../Hooks/useAllProduct'
+import { useParams } from 'react-router'
+import useCartContext from '../Contexts/Cart'
+import { motion } from 'framer-motion'
 
 export const Products = () => {
-  const {addToCart}=useCartContext()
-  const { pId } = useParams();
-  const { allProducts, error } = useAllProduct();
-  const [product, setProduct] = useState(null);
+  const { addToCart } = useCartContext()
+  const { pId } = useParams()
+  const { allProducts, error } = useAllProduct()
+  const [product, setProduct] = useState(null)
   const [descarr, setDescarr] = useState([])
 
   useEffect(() => {
     if (allProducts.length > 0) {
-      const foundProduct = allProducts.find((e) => e.id === Number(pId));
-      setDescarr(foundProduct.description.split(', '))
-      setProduct(foundProduct);
+      const foundProduct = allProducts.find((e) => e.id === Number(pId))
+      if (foundProduct) {
+        setDescarr(foundProduct.description.split(', '))
+        setProduct(foundProduct)
+      }
     }
-  }, [allProducts, pId,addToCart]);
+  }, [allProducts, pId])
 
   if (error) {
-    return <div>Error: {error.message}</div>;
+    return <div className="text-red-400 text-center mt-4">Error: {error.message}</div>
   }
 
   if (!product) {
-    return <div>Product not found</div>;
+    return <div className="text-center text-gray-400 mt-10">Loading product details...</div>
   }
 
   return (
-    <div className='flex flex-row flex-wrap my-8 justify-evenly'>
-      <div className='px-4 shadow-md w-[400px] h-auto  '>
-        <img src={product.image} alt={product.title} className='w-full h-full ' />
-      </div>
-      <div className='px-8'>
-        <h1 className='text-blue-950 text-2xl'>{product.title}</h1>
-        <h2 className='text-blue-900'>{product.category.toUpperCase()}</h2>
-        <h3 className='text-2xl'>Price: &#8377;{product.price}</h3>
+    <motion.div
+      className="flex flex-col lg:flex-row gap-10 justify-center items-start py-10 px-4 md:px-16 bg-zinc-900 text-white min-h-screen transition-colors"
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4 }}
+    >
+      {/* Product Image */}
+      <motion.div
+        className="w-full max-w-sm mx-auto lg:mx-0 bg-zinc-800 rounded-2xl overflow-hidden shadow-lg border border-zinc-700"
+        whileHover={{ scale: 1.02 }}
+      >
+        <img
+          src={product.image}
+          alt={product.title}
+          className="object-contain w-full h-[400px] p-6"
+        />
+      </motion.div>
 
-        <div className=''>
-          <h2 className='text-blue-900 text-2xl p-2'>Description</h2>
-          <ul>
+      {/* Product Info */}
+      <div className="flex-1 space-y-6">
+        <motion.h1 className="text-2xl font-bold text-white">
+          {product.title}
+        </motion.h1>
+
+        <h2 className="uppercase text-sm text-zinc-400 tracking-wide">
+          {product.category}
+        </h2>
+
+        <h3 className="text-xl font-semibold text-blue-400">
+          ₹{product.price}
+        </h3>
+
+        {/* Description */}
+        <div>
+          <h2 className="text-lg font-semibold text-white mb-2">
+            Description
+          </h2>
+          <ul className="list-disc list-inside space-y-2 text-zinc-300">
             {descarr.map((desc, i) => (
-              <li className='list-inside list-disc py-2 px-4' key={i}>{desc}</li>
+              <li key={i}>{desc}</li>
             ))}
           </ul>
         </div>
-        <div className="flex flex-row justify-center items-center m-4">
-          <button className='max-[600px]:w-full text-white bg-blue-900 w-1/4 rounded-xl py-1 shadow-md  active:shadow-blue-900 transition-shadow duration-150' onClick={()=>addToCart(pId,1,product.price,product.title,product.image)}>Add to Cart</button>
-        </div>
+
+        {/* Add to Cart Button */}
+        <motion.button
+          onClick={() =>
+            addToCart(Number(pId), 1, product.price, product.title, product.image)
+          }
+          whileTap={{ scale: 0.95 }}
+          whileHover={{ scale: 1.03 }}
+          className="w-full md:w-1/2 lg:w-1/3 bg-blue-600 hover:bg-blue-500 text-white font-semibold py-2 rounded-xl shadow-lg transition-all"
+        >
+          Add to Cart
+        </motion.button>
       </div>
+    </motion.div>
+  )
+}
 
-    </div>
-  );
-};
-
-export default Products;
+export default Products

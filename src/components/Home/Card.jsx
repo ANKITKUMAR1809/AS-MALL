@@ -1,19 +1,24 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Card = (props) => {
   return (
     <Link to={`/product/${props.pId}`}>
-    <div className=' relative flex flex-col p-4 my-4 justify-around items-center shadow-md w-[200px] h-[366px] flex-wrap hover:scale-[1.03]'>
-      <div className='absolute'></div>
-      <div className='w-[60%] h-auto'>
-        <img className='w-full object-contain' src={props.img} alt="" />
-      </div>
-        <h3 className='text-[18px] text-wrap text-center'>{props.title}</h3>
-        <p className='font-semibold'>&#8377; {props.price}</p>
-    </div>
-    </Link>
-  )
-}
+      <div className='relative flex flex-col justify-between items-center w-[200px] h-[370px] p-4 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all hover:scale-[1.03]'>
+        
+        {/* Product Image */}
+        <div className='w-full h-[180px] flex items-center justify-center'>
+          <img className='max-h-full object-contain' src={props.img} alt={props.title} />
+        </div>
 
-export default Card
+        {/* Product Info */}
+        <div className='flex flex-col items-center gap-2 mt-4'>
+          <h3 className='text-sm font-medium text-center line-clamp-2 text-black'>{props.title}</h3>
+          <p className='text-lg font-semibold text-blue-800'>&#8377; {props.price}</p>
+        </div>
+      </div>
+    </Link>
+  );
+};
+
+export default Card;

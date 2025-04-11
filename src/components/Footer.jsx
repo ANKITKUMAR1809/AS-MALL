@@ -1,27 +1,38 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+
 const Footer = () => {
   return (
-    <div className='h-[300px] w-full flex flex-col items-center justify-evenly'>
-      <div className='w-full flex-wrap flex flex-row items-center justify-around'>
-
-        <div className="left">
-          <Link to="" className='text-[18px] text-blue-950 px-4'>Home</Link>
-          <Link to="/men" className='text-[18px] text-blue-950 px-4'>Men</Link>
-          <Link to="/women" className='text-[18px] text-blue-950 px-4'>Women</Link>
+    <footer className="w-full bg-zinc-900 text-white py-10 px-4">
+      <div className="max-w-7xl mx-auto flex flex-col gap-10 lg:flex-row lg:justify-between">
+        
+        {/* Navigation Links */}
+        <div className="flex flex-col items-center lg:items-start gap-4">
+          <h2 className="text-xl font-semibold">Quick Links</h2>
+          <Link to="/" className="hover:underline text-gray-300">Home</Link>
+          <Link to="/men" className="hover:underline text-gray-300">Men</Link>
+          <Link to="/women" className="hover:underline text-gray-300">Women</Link>
         </div>
 
-        <div className="right flex flex-col items-center justify-between" >
-          <h1 className='text-blue-950 text-2xl my-2'>Subscribe to Newsletter</h1>
-          <input type="text" placeholder='youremail@gmail.com' className='px-8 py-2 outline-none border-2 ' />
-          <button className='outline-none border-none bg-blue-950 text-white w-full my-2 rounded-md p-1'>Subscribe</button>
+        {/* Newsletter */}
+        <div className="flex flex-col items-center">
+          <h2 className="text-xl font-semibold mb-2">Subscribe to our Newsletter</h2>
+          <input 
+            type="email" 
+            placeholder="youremail@gmail.com" 
+            className="px-4 py-2 rounded-md text-black w-full max-w-sm"
+          />
+          <button className="mt-3 bg-blue-700 hover:bg-blue-600 transition-colors text-white px-6 py-2 rounded-md shadow-md">
+            Subscribe
+          </button>
         </div>
+      </div>
 
+      {/* Bottom Text */}
+      <div className="text-center border-t border-gray-700 mt-10 pt-4">
+        <p className="text-sm text-gray-400">SAK © AK THE PROGRAMMER</p>
       </div>
-      <div className="flex flex-row items-center justify-center">
-        <h2 className='text-[23px] text-blue-950 px-4'>SAK © AK THE PROGRAMMER </h2>
-      </div>
-    </div>
+    </footer>
   )
 }
 
